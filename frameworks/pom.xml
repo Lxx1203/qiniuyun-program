@@ -13,12 +13,13 @@
     <packaging>pom</packaging>
     <modules>
         <module>bizs</module>
-        <module>bizs</module>
         <module>base</module>
         <module>database</module>
         <module>common</module>
         <module>convention</module>
         <module>cache</module>
+        <module>web</module>
+        <module>designpattern</module>
     </modules>
 
     <properties>

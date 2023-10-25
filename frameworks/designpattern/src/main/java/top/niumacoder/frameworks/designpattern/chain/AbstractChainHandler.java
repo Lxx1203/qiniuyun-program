@@ -9,12 +9,12 @@ import org.springframework.core.Ordered;
 public interface AbstractChainHandler <T> extends Ordered {
     /**
      * 责任链执行逻辑
-     * @param requestParam-责任链入参
+     * @param requestParam 责任链入参
      */
     void handler(T requestParam);
 
     /**
-     * @return-责任链标识
+     * @return 责任链标识
      */
     String mark();
 }

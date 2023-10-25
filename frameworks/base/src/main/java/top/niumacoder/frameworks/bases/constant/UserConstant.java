@@ -19,4 +19,8 @@ public class UserConstant {
      */
     public static final String USER_TOKEN_KEY = "token";
 
+    /**
+     * 用户电话 Key
+     */
+    public static final String USER_PHONE_KEY = "phone";
 }

@@ -1,4 +1,4 @@
-package top.niumacoder.userservice.service.impl;
+package top.niumacoder.userservice.dto.req;
 
 import lombok.Data;
 

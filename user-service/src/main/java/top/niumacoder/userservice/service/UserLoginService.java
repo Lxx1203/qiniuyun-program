@@ -5,7 +5,7 @@ import top.niumacoder.userservice.dto.req.UserLoginReqDTO;
 import top.niumacoder.userservice.dto.req.UserRegisterReqDTO;
 import top.niumacoder.userservice.dto.resp.UserLoginRespDTO;
 import top.niumacoder.userservice.dto.resp.UserRegisterRespDTO;
-import top.niumacoder.userservice.service.impl.UserDeletionReqDTO;
+import top.niumacoder.userservice.dto.req.UserDeletionReqDTO;
 
 /**
  * 用户登录接口

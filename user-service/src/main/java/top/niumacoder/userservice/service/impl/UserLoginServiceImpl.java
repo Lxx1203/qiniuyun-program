@@ -24,6 +24,7 @@ import top.niumacoder.userservice.dao.entity.UserDO;
 import top.niumacoder.userservice.dao.entity.UserPhoneDO;
 import top.niumacoder.userservice.dao.mapper.UserMapper;
 import top.niumacoder.userservice.dao.mapper.UserPhoneMapper;
+import top.niumacoder.userservice.dto.req.UserDeletionReqDTO;
 import top.niumacoder.userservice.dto.req.UserMessageReqDTO;
 import top.niumacoder.userservice.dto.req.UserLoginReqDTO;
 import top.niumacoder.userservice.dto.req.UserRegisterReqDTO;
@@ -209,13 +210,15 @@ public class UserLoginServiceImpl implements UserLoginService {
                     .eq(UserDO::getPhone, requestParam.getPhone());
             UserDO userDO = userMapper.selectOne(queryWrapper);
             userMapper.deletionUser(userDO);
-            
+
             UserPhoneDO userPhoneDO = UserPhoneDO.builder()
                     .phone(requestParam.getPhone())
                     .username(userDO.getUsername())
                     .build();
             userPhoneMapper.deletionUser(userPhoneDO);
-        }finally {
+
+            distributedCache.delete(UserContext.getToken());
+        } finally {
             lock.unlock();
         }
     }

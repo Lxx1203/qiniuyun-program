@@ -23,10 +23,12 @@ public class UserTransmitFilter implements Filter {
             if (StringUtils.hasText(userName)) {
                 userName = URLDecoder.decode(userName, UTF_8);
             }
+            String phone = httpServletRequest.getHeader(UserConstant.USER_PHONE_KEY);
             String token = httpServletRequest.getHeader(UserConstant.USER_TOKEN_KEY);
             UserInfoDTO userInfoDTO = UserInfoDTO.builder()
                     .userId(userId)
                     .username(userName)
+                    .phone(phone)
                     .token(token)
                     .build();
             UserContext.setUser(userInfoDTO);

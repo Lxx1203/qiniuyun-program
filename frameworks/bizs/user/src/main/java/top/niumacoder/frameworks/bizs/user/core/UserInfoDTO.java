@@ -25,6 +25,10 @@ public class UserInfoDTO {
     private String username;
 
     /**
+     * 电话号
+     */
+    private String phone;
+    /**
      * 用户 Token
      */
     private String token;

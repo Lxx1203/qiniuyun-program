@@ -45,7 +45,14 @@ public final class UserContext {
     public static String getToken() {
         return Optional.ofNullable(USER_THREAD_LOCAL.get()).map(UserInfoDTO::getToken).orElse(null);
     }
-
+    /**
+     * 获取用户Token
+     *
+     * @return 用户TOken
+     */
+    public static String getPhone() {
+        return Optional.ofNullable(USER_THREAD_LOCAL.get()).map(UserInfoDTO::getPhone).orElse(null);
+    }
     /**
      * 清理用户上下文
      *

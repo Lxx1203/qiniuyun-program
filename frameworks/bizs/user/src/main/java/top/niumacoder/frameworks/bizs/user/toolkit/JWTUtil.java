@@ -35,6 +35,7 @@ public final class JWTUtil {
         userInfoMap.put(USER_ID_KEY, userInfo.getUserId());
         userInfoMap.put(USER_NAME_KEY, userInfo.getUsername());
         userInfoMap.put(USER_TOKEN_KEY, userInfo.getToken());
+        userInfoMap.put(USER_PHONE_KEY, userInfo.getPhone());
         String jwtToken = Jwts.builder()
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .setIssuedAt(new Date())

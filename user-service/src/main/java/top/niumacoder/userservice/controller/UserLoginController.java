@@ -19,36 +19,56 @@ import top.niumacoder.userservice.service.UserLoginService;
 public class UserLoginController {
     private final UserLoginService userLoginService;
 
-    @PostMapping("/user-service/api/sendMsg")
+    /**
+     * 发送验证码
+     */
+    @PostMapping("/api/user-service/sendMsg")
     public Result<String> sendMsg(@RequestBody UserMessageReqDTO requestParam) {
         userLoginService.sendMsg(requestParam);
         return Results.success("验证码已发送");
     }
 
-    @PostMapping("/user-service/api/loginByPasswrod")
+    /**
+     * 通过密码登录
+     */
+    @PostMapping("/api/user-service/loginByPasswrod")
     public Result<UserLoginRespDTO> loginByPassword(@RequestBody UserLoginReqDTO requestParam) {
         UserLoginRespDTO result = userLoginService.loginByPassword(requestParam);
         return Results.success(result);
     }
 
-    @PostMapping("/user-service/api/loginByCode")
+    /**
+     * 通过验证码登录
+     */
+    @PostMapping("/api/user-service/loginByCode")
     public Result<UserLoginRespDTO> loginByCode(@RequestBody UserLoginReqDTO requestParam) {
         UserLoginRespDTO result = userLoginService.loginByCode(requestParam);
         return Results.success(result);
     }
 
-    @PostMapping("/user-service/api/register")
+    /**
+     * 注册用户
+     */
+    @PostMapping("/api/user-service/register")
     public Result<UserRegisterRespDTO> register(@RequestBody UserRegisterReqDTO requestParam) {
         UserRegisterRespDTO result = userLoginService.register(requestParam);
         return Results.success(result);
     }
 
-    @GetMapping("/user-service/api/check-login")
+    /**
+     * 通过Token检查是否登录
+     */
+    @GetMapping("/api/user-service/check-login")
     public Result<UserLoginRespDTO> checkLogin(@RequestParam("accessToken") String accessToken) {
         UserLoginRespDTO result = userLoginService.checkLogin(accessToken);
         return Results.success(result);
     }
 
+
+    /**
+     * 退出登录
+     */
+    @GetMapping("/api/user-service/logout")
     public Result<Void> logout(@RequestParam(required = false) String accessToken) {
         userLoginService.logout(accessToken);
         return Results.success();
